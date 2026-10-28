@@ -1,10 +1,45 @@
-/* Custom styles & subtle scroll reveal animations */
+/* Editorial Ink & Paper Neo-Brutalist Design System */
 
+.bg-dot-grid {
+  background-image: radial-gradient(#141413 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.dark .bg-dot-grid {
+  background-image: radial-gradient(#ffffff 1px, transparent 1px);
+}
+
+/* Tactile offset ink shadows */
+.shadow-neo-sm {
+  box-shadow: 2px 2px 0px #141413;
+}
+
+.shadow-neo {
+  box-shadow: 4px 4px 0px #141413;
+}
+
+.shadow-neo-lg {
+  box-shadow: 6px 6px 0px #141413;
+}
+
+.dark .shadow-neo-sm {
+  box-shadow: 2px 2px 0px #000000;
+}
+
+.dark .shadow-neo {
+  box-shadow: 4px 4px 0px #000000;
+}
+
+.dark .shadow-neo-lg {
+  box-shadow: 6px 6px 0px #000000;
+}
+
+/* Subtle scroll reveal animations */
 .reveal {
   opacity: 0;
-  transform: translateY(18px);
-  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(16px);
+  transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .reveal.visible {
@@ -12,20 +47,21 @@
   transform: translateY(0);
 }
 
-/* Custom subtle scrollbar */
+/* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: #F7F5F0;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #121316;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(148, 163, 184, 0.3);
+  background: #141413;
   border-radius: 9999px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(148, 163, 184, 0.5);
+  border: 2px solid #F7F5F0;
 }

@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth dark">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Piotr Adamski — Software Engineering Manager</title>
   <meta name="description" content="Piotr Adamski — Software Engineering Manager at Motorola Solutions. Leading Cloud, Media Streaming & Firmware Teams. C++, Go, Cloud & AI-Driven Engineering." />
 
-  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <!-- Google Fonts: Space Grotesk, Plus Jakarta Sans & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -19,16 +19,27 @@
       theme: {
         extend: {
           fontFamily: {
-            sans: ['Inter', 'system-ui', 'sans-serif'],
+            sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+            display: ['Space Grotesk', 'system-ui', 'sans-serif'],
             mono: ['JetBrains Mono', 'monospace'],
           },
           colors: {
-            brand: {
-              50: '#eef2ff',
-              100: '#e0e7ff',
-              400: '#818cf8',
-              500: '#6366f1',
-              600: '#4f46e5',
+            paper: {
+              DEFAULT: '#F7F5F0',
+              warm: '#EFECE4',
+              dark: '#121316',
+              cardDark: '#1B1D22',
+            },
+            ink: {
+              DEFAULT: '#141413',
+              muted: '#575653',
+            },
+            accent: {
+              amber: '#FCD34D',
+              indigo: '#6366F1',
+              mint: '#6EE7B7',
+              sky: '#7DD3FC',
+              coral: '#FDA4AF',
             }
           }
         }
@@ -39,269 +50,365 @@
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
-  <!-- Custom Styles -->
+  <!-- Custom Editorial Styles -->
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body class="bg-slate-50 text-slate-900 dark:bg-[#0a0d14] dark:text-slate-100 antialiased selection:bg-brand-500 selection:text-white transition-colors duration-300">
+<body class="bg-paper text-ink dark:bg-paper-dark dark:text-slate-100 font-sans antialiased selection:bg-accent-amber selection:text-ink transition-colors duration-300">
 
-  <!-- Ambient Background Glow -->
-  <div class="fixed inset-0 pointer-events-none overflow-hidden -z-10">
-    <div class="absolute -top-40 left-1/4 w-[500px] h-[500px] rounded-full bg-brand-500/10 dark:bg-brand-500/10 blur-[120px]"></div>
-    <div class="absolute top-1/3 -right-32 w-[420px] h-[420px] rounded-full bg-sky-500/10 dark:bg-sky-500/8 blur-[120px]"></div>
-  </div>
+  <!-- Subtle Dot Grid Background -->
+  <div class="fixed inset-0 pointer-events-none bg-dot-grid opacity-50 dark:opacity-20 -z-10"></div>
 
-  <!-- Navigation -->
-  <header class="sticky top-0 z-50 backdrop-blur-md bg-white/75 dark:bg-[#0a0d14]/80 border-b border-slate-200/80 dark:border-slate-800/80 transition-colors duration-300">
-    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+  <!-- Top Navigation -->
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-paper/90 dark:bg-paper-dark/90 border-b-2 border-ink dark:border-slate-800 transition-colors">
+    <div class="max-w-6xl mx-auto px-5 sm:px-6 h-18 py-3 flex items-center justify-between">
+      <!-- Brand / Avatar -->
       <a href="#" class="flex items-center gap-3 group">
-        <!-- Profile Avatar in Navbar (uses assets/profile.jpg if present, falls back to PA monogram) -->
-        <div class="relative w-9 h-9 rounded-full overflow-hidden bg-slate-900 dark:bg-white text-white dark:text-slate-950 font-mono font-semibold text-xs flex items-center justify-center ring-2 ring-brand-500/40 group-hover:scale-105 transition-transform">
+        <div class="w-10 h-10 rounded-xl overflow-hidden border-2 border-ink dark:border-slate-200 bg-accent-amber flex items-center justify-center shadow-neo-sm group-hover:-translate-y-0.5 transition-transform">
           <img src="assets/profile.jpg" alt="Piotr Adamski" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-          <span class="hidden items-center justify-center w-full h-full">PA</span>
+          <span class="hidden font-display font-bold text-sm text-ink">PA</span>
         </div>
-        <span class="font-semibold tracking-tight text-sm sm:text-base">Piotr Adamski</span>
+        <div>
+          <span class="font-display font-bold tracking-tight text-base sm:text-lg block leading-none">Piotr Adamski</span>
+          <span class="font-mono text-[11px] text-ink-muted dark:text-slate-400">Engineering Manager</span>
+        </div>
       </a>
 
-      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600 dark:text-slate-400">
-        <a href="#about" class="hover:text-slate-900 dark:hover:text-white transition-colors">About</a>
-        <a href="#expertise" class="hover:text-slate-900 dark:hover:text-white transition-colors">Expertise</a>
-        <a href="#experience" class="hover:text-slate-900 dark:hover:text-white transition-colors">Experience</a>
-        <a href="#credentials" class="hover:text-slate-900 dark:hover:text-white transition-colors">Credentials</a>
-        <a href="#contact" class="hover:text-slate-900 dark:hover:text-white transition-colors">Contact</a>
+      <!-- Nav Links -->
+      <nav class="hidden md:flex items-center gap-7 text-sm font-semibold text-ink/80 dark:text-slate-300">
+        <a href="#about" class="hover:text-ink dark:hover:text-white underline-offset-4 hover:underline">About</a>
+        <a href="#philosophy" class="hover:text-ink dark:hover:text-white underline-offset-4 hover:underline">How I Work</a>
+        <a href="#expertise" class="hover:text-ink dark:hover:text-white underline-offset-4 hover:underline">Expertise</a>
+        <a href="#experience" class="hover:text-ink dark:hover:text-white underline-offset-4 hover:underline">Experience</a>
+        <a href="#credentials" class="hover:text-ink dark:hover:text-white underline-offset-4 hover:underline">Credentials</a>
       </nav>
 
+      <!-- Right Actions -->
       <div class="flex items-center gap-2.5">
-        <!-- Download Resume Button (Desktop) -->
-        <a href="assets/Piotr_Adamski_Resume.pdf" download="Piotr_Adamski_Resume.pdf" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-colors">
+        <a href="assets/Piotr_Adamski_Resume.pdf" download="Piotr_Adamski_Resume.pdf" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-mono font-semibold bg-white dark:bg-paper-cardDark text-ink dark:text-slate-100 border-2 border-ink dark:border-slate-700 shadow-neo-sm hover:-translate-y-0.5 transition-all">
           <i data-lucide="download" class="w-3.5 h-3.5"></i>
-          <span>Resume PDF</span>
+          <span>Resume.pdf</span>
         </a>
 
-        <!-- Theme Toggle Button -->
-        <button id="theme-toggle" aria-label="Toggle dark/light theme" class="p-2 rounded-lg border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-colors">
+        <button id="theme-toggle" aria-label="Toggle theme" class="p-2 rounded-xl bg-white dark:bg-paper-cardDark text-ink dark:text-slate-100 border-2 border-ink dark:border-slate-700 shadow-neo-sm hover:-translate-y-0.5 transition-all">
           <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
           <i data-lucide="moon" class="w-4 h-4 block dark:hidden"></i>
         </button>
 
-        <a href="#contact" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-medium bg-slate-900 text-white dark:bg-white dark:text-slate-950 hover:opacity-90 transition-opacity">
-          <span>Get in touch</span>
-          <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+        <a href="#contact" class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-xl text-xs sm:text-sm font-display font-bold bg-accent-amber text-ink border-2 border-ink shadow-neo-sm hover:-translate-y-0.5 transition-all">
+          <span>Let's Talk</span>
+          <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
         </a>
       </div>
     </div>
   </header>
 
-  <main class="max-w-6xl mx-auto px-6">
+  <main class="max-w-6xl mx-auto px-5 sm:px-6">
 
     <!-- HERO SECTION -->
-    <section id="about" class="py-14 md:py-22 lg:py-24">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+    <section id="about" class="py-12 md:py-20">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
 
-        <!-- Left Column: Intro & Bio -->
+        <!-- Left Column: Editorial Headline & Bio -->
         <div class="lg:col-span-7 space-y-6 reveal">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-600 dark:text-brand-400 text-xs font-mono font-medium">
-            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-            Software Engineering Manager @ Motorola Solutions
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white dark:bg-paper-cardDark border-2 border-ink dark:border-slate-700 shadow-neo-sm text-xs font-mono font-medium">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 border border-ink animate-pulse"></span>
+            <span>Software Engineering Manager @ Motorola Solutions</span>
           </div>
 
-          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1]">
-            Building high-performing teams &amp; <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-sky-500 dark:from-brand-400 dark:to-sky-400">cloud-connected camera systems.</span>
+          <h1 class="font-display text-4xl sm:text-5xl lg:text-[56px] font-bold tracking-tight leading-[1.06]">
+            Leading <span class="px-2 bg-accent-amber text-ink rounded-lg border-2 border-ink inline-block -rotate-1">3 engineering teams</span> while staying close to the code.
           </h1>
 
-          <p class="text-base sm:text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl">
-            I'm an Engineering Manager based in <strong class="font-medium text-slate-900 dark:text-slate-200">Cracow, Poland</strong> who prefers staying close to the technology. With over 10 years in software development, I lead a <strong class="font-medium text-slate-900 dark:text-slate-200">16-person engineering organization</strong> across three independent teams—Backend, Media Streaming, and Cloud Firmware—while actively contributing to C++ and Go codebases and championing AI-augmented engineering.
+          <p class="text-base sm:text-lg text-ink-muted dark:text-slate-300 leading-relaxed max-w-2xl">
+            Hi, I'm <strong class="text-ink dark:text-white font-semibold">Piotr Adamski</strong>—an Engineering Manager based in <strong class="text-ink dark:text-white font-semibold">Cracow, Poland</strong> with over 10 years in software development. At Motorola Solutions, I lead a <strong class="text-ink dark:text-white font-semibold">16-person engineering organization</strong> across <strong>Cloud Backend, Media Streaming, and Cloud Camera Firmware</strong> while actively contributing to our C++ and Go repositories and championing AI-augmented workflows.
           </p>
 
-          <!-- Tech Pills -->
-          <div class="flex flex-wrap gap-2 pt-1 font-mono text-xs">
-            <span class="px-2.5 py-1 rounded-md bg-slate-200/70 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300">Engineering Leadership</span>
-            <span class="px-2.5 py-1 rounded-md bg-slate-200/70 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300">C++ &amp; Go</span>
-            <span class="px-2.5 py-1 rounded-md bg-slate-200/70 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300">Cloud Backend</span>
-            <span class="px-2.5 py-1 rounded-md bg-slate-200/70 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300">Media Streaming</span>
-            <span class="px-2.5 py-1 rounded-md bg-slate-200/70 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300">Cloud Camera Firmware</span>
-            <span class="px-2.5 py-1 rounded-md bg-slate-200/70 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300">AI-Augmented Workflows</span>
+          <!-- Tactile Tech Stack Pills -->
+          <div class="flex flex-wrap gap-2 pt-1 font-mono text-xs font-medium">
+            <span class="px-3 py-1 rounded-lg bg-accent-sky/60 text-ink border-2 border-ink">Cloud Backend</span>
+            <span class="px-3 py-1 rounded-lg bg-accent-mint/70 text-ink border-2 border-ink">Media Streaming</span>
+            <span class="px-3 py-1 rounded-lg bg-accent-amber/80 text-ink border-2 border-ink">Cloud Camera Firmware</span>
+            <span class="px-3 py-1 rounded-lg bg-white dark:bg-paper-cardDark text-ink dark:text-slate-200 border-2 border-ink dark:border-slate-700">C++ &amp; Go</span>
+            <span class="px-3 py-1 rounded-lg bg-accent-coral/60 text-ink border-2 border-ink">AI-Driven Engineering</span>
           </div>
 
-          <!-- Action Buttons -->
-          <div class="flex flex-wrap items-center gap-3.5 pt-3">
-            <a href="https://www.linkedin.com/in/piotr-adamski-59aa06101" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-xl font-medium text-sm bg-brand-600 hover:bg-brand-500 text-white shadow-lg shadow-brand-500/20 transition-all">
+          <!-- CTA Buttons -->
+          <div class="flex flex-wrap items-center gap-4 pt-3">
+            <a href="https://www.linkedin.com/in/piotr-adamski-59aa06101" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 px-6 py-3 rounded-xl font-display font-bold text-sm bg-ink text-white dark:bg-accent-amber dark:text-ink border-2 border-ink shadow-neo hover:-translate-y-0.5 transition-all">
               <i data-lucide="linkedin" class="w-4 h-4"></i>
               <span>Connect on LinkedIn</span>
             </a>
 
-            <a href="assets/Piotr_Adamski_Resume.pdf" download="Piotr_Adamski_Resume.pdf" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-medium text-sm bg-slate-900 text-white dark:bg-slate-800 dark:text-slate-100 hover:opacity-90 transition-all">
+            <a href="assets/Piotr_Adamski_Resume.pdf" download="Piotr_Adamski_Resume.pdf" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl font-display font-bold text-sm bg-white dark:bg-paper-cardDark text-ink dark:text-white border-2 border-ink dark:border-slate-700 shadow-neo hover:-translate-y-0.5 transition-all">
               <i data-lucide="file-down" class="w-4 h-4"></i>
-              <span>Download Resume (PDF)</span>
-            </a>
-
-            <a href="#experience" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-medium text-sm border border-slate-300 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-colors">
-              <span>Experience</span>
-              <i data-lucide="arrow-down" class="w-4 h-4"></i>
+              <span>Download Resume</span>
             </a>
           </div>
         </div>
 
-        <!-- Right Column: Minimalist Executive & Engineering Architecture Card -->
+        <!-- Right Column: Interactive Character & Profile Studio Card -->
         <div class="lg:col-span-5 reveal">
-          <div class="relative rounded-2xl border border-slate-200 dark:border-slate-800/90 bg-white/90 dark:bg-slate-900/70 backdrop-blur-xl p-6 shadow-2xl">
+          <div class="rounded-3xl bg-white dark:bg-paper-cardDark border-2 border-ink dark:border-slate-700 shadow-neo-lg p-5 sm:p-6 relative">
 
-            <!-- Profile Header Strip -->
-            <div class="flex items-center gap-4 pb-5 mb-5 border-b border-slate-200/70 dark:border-slate-800/80">
-              <div class="relative w-16 h-16 rounded-2xl overflow-hidden bg-gradient-to-br from-brand-500 to-sky-500 p-0.5 shadow-md shrink-0">
-                <div class="w-full h-full rounded-[14px] overflow-hidden bg-slate-900 flex items-center justify-center text-white font-mono font-bold text-xl">
-                  <img src="assets/profile.jpg" alt="Piotr Adamski" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-                  <span class="hidden items-center justify-center w-full h-full">PA</span>
+            <!-- Top Window Bar + Mode Switcher -->
+            <div class="flex flex-wrap items-center justify-between gap-2 pb-4 mb-4 border-b-2 border-ink/15 dark:border-slate-800">
+              <div class="flex items-center gap-2.5">
+                <img src="assets/profile.jpg" alt="Piotr Adamski" class="w-9 h-9 rounded-full object-cover border-2 border-ink" onerror="this.style.display='none'" />
+                <div>
+                  <div class="font-display font-bold text-sm leading-tight">Piotr Adamski</div>
+                  <div class="font-mono text-[11px] text-ink-muted dark:text-slate-400">Cracow, PL • 16 Engineers</div>
                 </div>
               </div>
-              <div class="min-w-0">
-                <div class="flex items-center gap-2">
-                  <h2 class="font-bold text-lg text-slate-900 dark:text-white truncate">Piotr Adamski</h2>
-                  <span class="px-2 py-0.5 text-[10px] font-mono rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">Hands-On EM</span>
-                </div>
-                <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Motorola Solutions • Cracow, Poland</p>
+
+              <!-- Interactive Illustration Switcher -->
+              <div class="inline-flex rounded-xl border-2 border-ink bg-paper p-0.5 text-[11px] font-mono font-semibold text-ink">
+                <button type="button" data-hero-mode="work" class="hero-mode-btn px-2.5 py-1 rounded-lg bg-accent-amber border border-ink transition-all">
+                  💻 Coding &amp; Sync
+                </button>
+                <button type="button" data-hero-mode="coffee" class="hero-mode-btn px-2.5 py-1 rounded-lg hover:bg-white/60 transition-all">
+                  ☕ Say Hi
+                </button>
+                <button type="button" data-hero-mode="photo" class="hero-mode-btn px-2.5 py-1 rounded-lg hover:bg-white/60 transition-all">
+                  📸 Photo
+                </button>
               </div>
             </div>
 
-            <!-- Clean Minimalist Domain & Stack Breakdown -->
-            <div class="space-y-3">
-              <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-950/70 border border-slate-200/70 dark:border-slate-800/80 flex items-center justify-between">
-                <div class="flex items-center gap-3">
-                  <div class="p-2 rounded-lg bg-brand-500/10 text-brand-600 dark:text-brand-400">
-                    <i data-lucide="cloud" class="w-4 h-4"></i>
-                  </div>
-                  <div>
-                    <div class="text-xs font-semibold text-slate-900 dark:text-white">Cloud Backend &amp; Media Streaming</div>
-                    <div class="text-[11px] text-slate-500 dark:text-slate-400">Scalable cloud video pipelines &amp; microservices</div>
-                  </div>
-                </div>
-                <span class="font-mono text-[11px] text-brand-600 dark:text-brand-400">Go / Cloud</span>
-              </div>
+            <!-- Illustration Stage (Always warm paper background so black ink art pops in both themes) -->
+            <div class="relative rounded-2xl bg-paper border-2 border-ink p-4 flex flex-col items-center justify-center min-h-[300px] overflow-hidden">
+              <!-- Decorative corner tag -->
+              <span id="hero-stage-caption" class="absolute top-3 left-3 px-2.5 py-0.5 rounded-md bg-accent-mint border border-ink font-mono text-[11px] font-semibold text-ink">
+                Hands-On Leader + Team Sync
+              </span>
 
-              <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-950/70 border border-slate-200/70 dark:border-slate-800/80 flex items-center justify-between">
-                <div class="flex items-center gap-3">
-                  <div class="p-2 rounded-lg bg-sky-500/10 text-sky-600 dark:text-sky-400">
-                    <i data-lucide="camera" class="w-4 h-4"></i>
-                  </div>
-                  <div>
-                    <div class="text-xs font-semibold text-slate-900 dark:text-white">Cloud Camera Firmware</div>
-                    <div class="text-[11px] text-slate-500 dark:text-slate-400">H6M &amp; H6A cloud-connected camera systems</div>
-                  </div>
-                </div>
-                <span class="font-mono text-[11px] text-sky-600 dark:text-sky-400">Modern C++</span>
-              </div>
+              <!-- View 1: Larry Laptop & Team Collaboration (larry-2.svg) -->
+              <img
+                id="hero-view-work"
+                src="assets/illustrations/larry-2.svg"
+                alt="Engineering Manager collaborating and coding"
+                class="w-64 h-64 sm:w-72 sm:h-72 object-contain transition-all duration-300"
+              />
 
-              <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-950/70 border border-slate-200/70 dark:border-slate-800/80 flex items-center justify-between">
-                <div class="flex items-center gap-3">
-                  <div class="p-2 rounded-lg bg-purple-500/10 text-purple-600 dark:text-purple-400">
-                    <i data-lucide="sparkles" class="w-4 h-4"></i>
-                  </div>
-                  <div>
-                    <div class="text-xs font-semibold text-slate-900 dark:text-white">AI-Driven Engineering</div>
-                    <div class="text-[11px] text-slate-500 dark:text-slate-400">Claude, Gemini, Copilot &amp; automated CI/CD</div>
-                  </div>
+              <!-- View 2: Larry Waving with Coffee (larry-5.svg) -->
+              <img
+                id="hero-view-coffee"
+                src="assets/illustrations/larry-5.svg"
+                alt="Waving hello with coffee"
+                class="w-64 h-64 sm:w-72 sm:h-72 object-contain hidden transition-all duration-300"
+              />
+
+              <!-- View 3: Real LinkedIn Portrait Photo -->
+              <div id="hero-view-photo" class="hidden flex-col items-center justify-center py-4">
+                <div class="w-48 h-48 sm:w-52 sm:h-52 rounded-2xl overflow-hidden border-2 border-ink shadow-neo bg-white">
+                  <img src="assets/profile.jpg" alt="Piotr Adamski Portrait" class="w-full h-full object-cover" />
                 </div>
-                <span class="font-mono text-[11px] text-purple-600 dark:text-purple-400">AI Workflows</span>
+                <p class="font-mono text-xs text-ink mt-3 font-medium">Piotr Adamski — Motorola Solutions</p>
               </div>
             </div>
 
-            <!-- Key Metrics Strip inside Card -->
-            <div class="grid grid-cols-3 gap-3 mt-5 pt-4 border-t border-slate-200/70 dark:border-slate-800/80 text-center">
-              <div>
-                <div class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">10+</div>
-                <div class="text-[11px] text-slate-500 dark:text-slate-400">Years in Tech</div>
+            <!-- Key Metrics Strip -->
+            <div class="grid grid-cols-3 gap-3 mt-5 pt-4 border-t-2 border-ink/15 dark:border-slate-800 text-center">
+              <div class="p-2 rounded-xl bg-paper/70 dark:bg-slate-900/70 border border-ink/20 dark:border-slate-800">
+                <div class="font-display text-2xl font-bold">10+</div>
+                <div class="font-mono text-[11px] text-ink-muted dark:text-slate-400">Years in Tech</div>
               </div>
-              <div>
-                <div class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">16</div>
-                <div class="text-[11px] text-slate-500 dark:text-slate-400">Engineers Led</div>
+              <div class="p-2 rounded-xl bg-accent-amber/30 dark:bg-accent-amber/15 border border-ink/20 dark:border-slate-800">
+                <div class="font-display text-2xl font-bold">16</div>
+                <div class="font-mono text-[11px] text-ink-muted dark:text-slate-400">Engineers Led</div>
               </div>
-              <div>
-                <div class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">3</div>
-                <div class="text-[11px] text-slate-500 dark:text-slate-400">Core Teams</div>
+              <div class="p-2 rounded-xl bg-accent-sky/30 dark:bg-accent-sky/15 border border-ink/20 dark:border-slate-800">
+                <div class="font-display text-2xl font-bold">3</div>
+                <div class="font-mono text-[11px] text-ink-muted dark:text-slate-400">Core Domains</div>
               </div>
             </div>
+
           </div>
         </div>
 
       </div>
     </section>
 
-    <!-- CORE FOCUS & EXPERTISE (BENTO GRID) -->
-    <section id="expertise" class="py-16 border-t border-slate-200/80 dark:border-slate-800/80">
-      <div class="max-w-2xl mb-12 reveal">
-        <p class="text-xs font-mono uppercase tracking-widest text-brand-600 dark:text-brand-400 font-semibold mb-2">Core Focus Areas</p>
-        <h2 class="text-2xl sm:text-3xl font-bold tracking-tight">Bridging people leadership with deep technical execution</h2>
-        <p class="text-slate-600 dark:text-slate-400 mt-3 text-sm sm:text-base">
-          Remaining hands-on isn't just about shipping features—it helps me make grounded architectural decisions, review code effectively, and keep technical debt in check.
+    <!-- HOW I WORK: 3 ILLUSTRATED PILLARS -->
+    <section id="philosophy" class="py-16 border-t-2 border-ink dark:border-slate-800">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4 reveal">
+        <div>
+          <span class="inline-block px-3 py-1 rounded-lg bg-accent-mint text-ink border-2 border-ink font-mono text-xs font-semibold mb-3">
+            Leadership Philosophy
+          </span>
+          <h2 class="font-display text-3xl sm:text-4xl font-bold tracking-tight">
+            How I build teams &amp; ship software
+          </h2>
+        </div>
+        <p class="text-sm sm:text-base text-ink-muted dark:text-slate-400 max-w-md">
+          Building strong, self-sufficient teams is just as important as writing clean code. Here is how I balance both every day:
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-        <!-- Card 1: Engineering Leadership -->
-        <div class="group rounded-2xl border border-slate-200 dark:border-slate-800/90 bg-white dark:bg-slate-900/40 p-7 hover:border-brand-500/50 transition-all reveal">
-          <div class="w-10 h-10 rounded-xl bg-brand-500/10 text-brand-600 dark:text-brand-400 flex items-center justify-center mb-5">
-            <i data-lucide="users" class="w-5 h-5"></i>
+        <!-- Pillar 1: Roadmap & Direction (larry-7.svg) -->
+        <div class="rounded-2xl bg-white dark:bg-paper-cardDark border-2 border-ink dark:border-slate-700 shadow-neo p-6 flex flex-col justify-between reveal hover:-translate-y-1 transition-transform">
+          <div>
+            <div class="h-44 rounded-xl bg-accent-amber/35 border-2 border-ink flex items-center justify-center p-3 mb-5">
+              <img src="assets/illustrations/larry-7.svg" alt="Technical Roadmap Planning" class="h-full object-contain" />
+            </div>
+            <span class="font-mono text-xs uppercase tracking-wider text-ink-muted dark:text-slate-400">01 / Direction</span>
+            <h3 class="font-display text-xl font-bold mt-1 mb-2">Grounded Technical Roadmaps</h3>
+            <p class="text-sm text-ink-muted dark:text-slate-300 leading-relaxed">
+              Partnering closely with Product Managers and stakeholders to translate business goals into clear architectural roadmaps across Cloud, Streaming, and Firmware teams.
+            </p>
           </div>
-          <h3 class="text-lg font-semibold mb-2">Multi-Team Engineering Leadership</h3>
-          <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
-            Leading a 16-person organization across 3 domains. Focused on building self-sufficient Scrum teams, mentoring engineers across all seniority levels, end-to-end hiring, performance management, and aligning daily execution with product roadmaps.
-          </p>
-          <div class="flex flex-wrap gap-1.5 font-mono text-[11px] text-slate-500 dark:text-slate-400">
-            <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800">Multi-Team Mgmt</span>
-            <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800">Hiring Manager</span>
-            <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800">Mentoring</span>
-            <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800">Technical Roadmaps</span>
+          <div class="mt-4 pt-3 border-t border-ink/15 dark:border-slate-800 font-mono text-xs text-ink-muted dark:text-slate-400 flex items-center justify-between">
+            <span>Cracow Engineering Hub</span>
+            <span>📍 3 Teams</span>
           </div>
         </div>
 
-        <!-- Card 2: Cloud, Media Streaming & Firmware -->
-        <div class="group rounded-2xl border border-slate-200 dark:border-slate-800/90 bg-white dark:bg-slate-900/40 p-7 hover:border-brand-500/50 transition-all reveal">
-          <div class="w-10 h-10 rounded-xl bg-sky-500/10 text-sky-600 dark:text-sky-400 flex items-center justify-center mb-5">
-            <i data-lucide="video" class="w-5 h-5"></i>
+        <!-- Pillar 2: Code Review & Quality Inspection (larry-10.svg) -->
+        <div class="rounded-2xl bg-white dark:bg-paper-cardDark border-2 border-ink dark:border-slate-700 shadow-neo p-6 flex flex-col justify-between reveal hover:-translate-y-1 transition-transform">
+          <div>
+            <div class="h-44 rounded-xl bg-accent-sky/40 border-2 border-ink flex items-center justify-center p-3 mb-5">
+              <img src="assets/illustrations/larry-10.svg" alt="Hands-On Code Review and Inspection" class="h-full object-contain" />
+            </div>
+            <span class="font-mono text-xs uppercase tracking-wider text-ink-muted dark:text-slate-400">02 / Craftsmanship</span>
+            <h3 class="font-display text-xl font-bold mt-1 mb-2">Hands-On Code &amp; Architecture</h3>
+            <p class="text-sm text-ink-muted dark:text-slate-300 leading-relaxed">
+              I haven't let go of the code. Active C++ and Go contributions and thorough code reviews help me make grounded decisions and keep technical debt in check.
+            </p>
           </div>
-          <h3 class="text-lg font-semibold mb-2">Cloud Backend, Media Streaming &amp; Firmware</h3>
-          <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
-            Driving software development and market introduction of advanced cloud-connected camera systems (including H6M and H6A Domes &amp; Bullets), alongside over 8 years of experience with high-traffic Telco &amp; large-scale real-time systems.
-          </p>
-          <div class="flex flex-wrap gap-1.5 font-mono text-[11px] text-slate-500 dark:text-slate-400">
-            <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800">Cloud Backend</span>
-            <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800">Video Streaming</span>
-            <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800">Cloud Camera Firmware</span>
-            <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800">Large-Scale RTS</span>
-          </div>
-        </div>
-
-        <!-- Card 3: AI-Augmented Engineering -->
-        <div class="group rounded-2xl border border-slate-200 dark:border-slate-800/90 bg-white dark:bg-slate-900/40 p-7 hover:border-brand-500/50 transition-all reveal">
-          <div class="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center mb-5">
-            <i data-lucide="sparkles" class="w-5 h-5"></i>
-          </div>
-          <h3 class="text-lg font-semibold mb-2">AI-Augmented Engineering &amp; ML</h3>
-          <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
-            Championing AI-assisted workflows by integrating Claude, Gemini, and GitHub Copilot across teams to accelerate development, architecture design, and testing. Experienced in building AI/RAG solutions on AWS Bedrock and ML network optimization.
-          </p>
-          <div class="flex flex-wrap gap-1.5 font-mono text-[11px] text-slate-500 dark:text-slate-400">
-            <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800">Claude &amp; Gemini</span>
-            <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800">GitHub Copilot</span>
-            <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800">AWS Bedrock (RAG)</span>
-            <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800">Python / scikit-learn</span>
+          <div class="mt-4 pt-3 border-t border-ink/15 dark:border-slate-800 font-mono text-xs text-ink-muted dark:text-slate-400 flex items-center justify-between">
+            <span>C++ • Go • Python</span>
+            <span>🔍 Clean Code</span>
           </div>
         </div>
 
-        <!-- Card 4: Hands-On Stack & DevOps -->
-        <div class="group rounded-2xl border border-slate-200 dark:border-slate-800/90 bg-white dark:bg-slate-900/40 p-7 hover:border-brand-500/50 transition-all reveal">
-          <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-5">
-            <i data-lucide="terminal" class="w-5 h-5"></i>
+        <!-- Pillar 3: Pragmatic Execution & Toggle (larry-13.svg) -->
+        <div class="rounded-2xl bg-white dark:bg-paper-cardDark border-2 border-ink dark:border-slate-700 shadow-neo p-6 flex flex-col justify-between reveal hover:-translate-y-1 transition-transform">
+          <div>
+            <div class="h-44 rounded-xl bg-accent-mint/45 border-2 border-ink flex items-center justify-center p-3 mb-5 relative">
+              <img src="assets/illustrations/larry-13.svg" alt="Pragmatic Delivery & Feature Toggles" class="h-full object-contain" />
+            </div>
+            <span class="font-mono text-xs uppercase tracking-wider text-ink-muted dark:text-slate-400">03 / Velocity</span>
+            <h3 class="font-display text-xl font-bold mt-1 mb-2">Pragmatic Delivery &amp; CI/CD</h3>
+            <p class="text-sm text-ink-muted dark:text-slate-300 leading-relaxed">
+              Caring deeply about solid CI/CD pipelines, reliable automated testing, and eliminating flaky tests so engineers can ship production features with confidence.
+            </p>
           </div>
-          <h3 class="text-lg font-semibold mb-2">Hands-On Code, Cloud &amp; Reliable CI/CD</h3>
-          <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
-            Actively contributing to C++ and Go repositories and conducting code reviews. Leading cross-team CI initiatives with QA to stabilize deployment pipelines, eliminate flaky tests, and maintain high engineering standards.
-          </p>
-          <div class="flex flex-wrap gap-1.5 font-mono text-[11px] text-slate-500 dark:text-slate-400">
-            <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800">C++ &amp; Go</span>
-            <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800">Azure &amp; GCP</span>
-            <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800">Docker</span>
-            <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800">GitHub Actions &amp; Jenkins</span>
+          <div class="mt-4 pt-3 border-t border-ink/15 dark:border-slate-800 font-mono text-xs text-ink-muted dark:text-slate-400 flex items-center justify-between">
+            <span>GitHub Actions • Jenkins</span>
+            <span>⚡ Zero Flakes</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CORE FOCUS & EXPERTISE (ILLUSTRATED BENTO GRID) -->
+    <section id="expertise" class="py-16 border-t-2 border-ink dark:border-slate-800">
+      <div class="max-w-2xl mb-12 reveal">
+        <span class="inline-block px-3 py-1 rounded-lg bg-accent-sky text-ink border-2 border-ink font-mono text-xs font-semibold mb-3">
+          Core Focus &amp; Tech Stack
+        </span>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold tracking-tight">
+          Four pillars of my engineering organization
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-7">
+
+        <!-- Card 1: Engineering Leadership (larry-12.svg - High Five) -->
+        <div class="rounded-3xl bg-white dark:bg-paper-cardDark border-2 border-ink dark:border-slate-700 shadow-neo-lg p-6 sm:p-8 flex flex-col justify-between reveal">
+          <div class="grid grid-cols-1 sm:grid-cols-12 gap-6 items-center">
+            <div class="sm:col-span-7 space-y-3">
+              <span class="px-2.5 py-1 rounded-md bg-accent-amber border border-ink font-mono text-xs font-semibold text-ink inline-block">
+                People &amp; Culture
+              </span>
+              <h3 class="font-display text-2xl font-bold">Multi-Team Engineering Leadership</h3>
+              <p class="text-sm text-ink-muted dark:text-slate-300 leading-relaxed">
+                Leading 16 engineers across 3 independent domains. Focused on mentoring, scaling self-organizing Scrum teams, end-to-end recruitment as Hiring Manager (from Interns &amp; QA to Senior Developers), and performance growth.
+              </p>
+            </div>
+            <div class="sm:col-span-5 h-44 rounded-2xl bg-paper border-2 border-ink p-3 flex items-center justify-center">
+              <img src="assets/illustrations/larry-12.svg" alt="Team high five illustration" class="h-full object-contain" />
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-2 mt-6 pt-4 border-t border-ink/15 dark:border-slate-800 font-mono text-xs">
+            <span class="px-2.5 py-1 rounded-md bg-paper dark:bg-slate-800 text-ink dark:text-slate-200 border border-ink/30">16 Engineers / 3 Teams</span>
+            <span class="px-2.5 py-1 rounded-md bg-paper dark:bg-slate-800 text-ink dark:text-slate-200 border border-ink/30">Hiring Manager</span>
+            <span class="px-2.5 py-1 rounded-md bg-paper dark:bg-slate-800 text-ink dark:text-slate-200 border border-ink/30">Mentoring</span>
+            <span class="px-2.5 py-1 rounded-md bg-paper dark:bg-slate-800 text-ink dark:text-slate-200 border border-ink/30">Agile / PSM I</span>
+          </div>
+        </div>
+
+        <!-- Card 2: Cloud, Media Streaming & Camera Firmware (larry-3.svg - Signal/Streaming) -->
+        <div class="rounded-3xl bg-white dark:bg-paper-cardDark border-2 border-ink dark:border-slate-700 shadow-neo-lg p-6 sm:p-8 flex flex-col justify-between reveal">
+          <div class="grid grid-cols-1 sm:grid-cols-12 gap-6 items-center">
+            <div class="sm:col-span-7 space-y-3">
+              <span class="px-2.5 py-1 rounded-md bg-accent-sky border border-ink font-mono text-xs font-semibold text-ink inline-block">
+                Cloud &amp; Video Systems
+              </span>
+              <h3 class="font-display text-2xl font-bold">Cloud Backend, Streaming &amp; Firmware</h3>
+              <p class="text-sm text-ink-muted dark:text-slate-300 leading-relaxed">
+                Driving software development and market introduction of cloud-connected camera systems—including <strong>H6M &amp; H6A (Domes and Bullets)</strong>—backed by 8.5+ years in global Telco &amp; large-scale Real-Time Systems.
+              </p>
+            </div>
+            <div class="sm:col-span-5 h-44 rounded-2xl bg-paper border-2 border-ink p-3 flex items-center justify-center">
+              <img src="assets/illustrations/larry-3.svg" alt="Media streaming and cloud signal illustration" class="h-full object-contain" />
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-2 mt-6 pt-4 border-t border-ink/15 dark:border-slate-800 font-mono text-xs">
+            <span class="px-2.5 py-1 rounded-md bg-paper dark:bg-slate-800 text-ink dark:text-slate-200 border border-ink/30">Cloud Backend</span>
+            <span class="px-2.5 py-1 rounded-md bg-paper dark:bg-slate-800 text-ink dark:text-slate-200 border border-ink/30">Media Streaming</span>
+            <span class="px-2.5 py-1 rounded-md bg-paper dark:bg-slate-800 text-ink dark:text-slate-200 border border-ink/30">Cloud Camera Firmware</span>
+            <span class="px-2.5 py-1 rounded-md bg-paper dark:bg-slate-800 text-ink dark:text-slate-200 border border-ink/30">H6M &amp; H6A</span>
+          </div>
+        </div>
+
+        <!-- Card 3: AI-Augmented Engineering (larry-4.svg - Robot & Manual) -->
+        <div class="rounded-3xl bg-white dark:bg-paper-cardDark border-2 border-ink dark:border-slate-700 shadow-neo-lg p-6 sm:p-8 flex flex-col justify-between reveal">
+          <div class="grid grid-cols-1 sm:grid-cols-12 gap-6 items-center">
+            <div class="sm:col-span-7 space-y-3">
+              <span class="px-2.5 py-1 rounded-md bg-accent-coral border border-ink font-mono text-xs font-semibold text-ink inline-block">
+                AI &amp; Modern Workflows
+              </span>
+              <h3 class="font-display text-2xl font-bold">AI-Augmented Engineering &amp; ML</h3>
+              <p class="text-sm text-ink-muted dark:text-slate-300 leading-relaxed">
+                Integrating <strong>Claude, Gemini, and GitHub Copilot</strong> into daily workflows across my teams to accelerate development, architecture design, and testing—plus hands-on experience with AWS Bedrock (RAG) and Python ML.
+              </p>
+            </div>
+            <div class="sm:col-span-5 h-44 rounded-2xl bg-paper border-2 border-ink p-3 flex items-center justify-center">
+              <img src="assets/illustrations/larry-4.svg" alt="AI engineering and debugging robot illustration" class="h-full object-contain" />
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-2 mt-6 pt-4 border-t border-ink/15 dark:border-slate-800 font-mono text-xs">
+            <span class="px-2.5 py-1 rounded-md bg-paper dark:bg-slate-800 text-ink dark:text-slate-200 border border-ink/30">Claude &amp; Gemini</span>
+            <span class="px-2.5 py-1 rounded-md bg-paper dark:bg-slate-800 text-ink dark:text-slate-200 border border-ink/30">GitHub Copilot</span>
+            <span class="px-2.5 py-1 rounded-md bg-paper dark:bg-slate-800 text-ink dark:text-slate-200 border border-ink/30">AWS Bedrock (RAG)</span>
+            <span class="px-2.5 py-1 rounded-md bg-paper dark:bg-slate-800 text-ink dark:text-slate-200 border border-ink/30">scikit-learn / Pandas</span>
+          </div>
+        </div>
+
+        <!-- Card 4: Infrastructure, Cloud & CI/CD (larry-6.svg - Browser Progress Bar) -->
+        <div class="rounded-3xl bg-white dark:bg-paper-cardDark border-2 border-ink dark:border-slate-700 shadow-neo-lg p-6 sm:p-8 flex flex-col justify-between reveal">
+          <div class="grid grid-cols-1 sm:grid-cols-12 gap-6 items-center">
+            <div class="sm:col-span-7 space-y-3">
+              <span class="px-2.5 py-1 rounded-md bg-accent-mint border border-ink font-mono text-xs font-semibold text-ink inline-block">
+                Systems &amp; DevOps
+              </span>
+              <h3 class="font-display text-2xl font-bold">C++, Go, Cloud &amp; Solid CI/CD</h3>
+              <p class="text-sm text-ink-muted dark:text-slate-300 leading-relaxed">
+                Active contributor to C++ and Go repositories. Led cross-team CI initiatives with QA to stabilize deployment pipelines, eliminate flaky tests, and ensure reliable, accurate bug detection.
+              </p>
+            </div>
+            <div class="sm:col-span-5 h-44 rounded-2xl bg-paper border-2 border-ink p-3 flex items-center justify-center">
+              <img src="assets/illustrations/larry-6.svg" alt="Continuous integration progress bar illustration" class="h-full object-contain" />
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-2 mt-6 pt-4 border-t border-ink/15 dark:border-slate-800 font-mono text-xs">
+            <span class="px-2.5 py-1 rounded-md bg-paper dark:bg-slate-800 text-ink dark:text-slate-200 border border-ink/30">C++ &amp; Go</span>
+            <span class="px-2.5 py-1 rounded-md bg-paper dark:bg-slate-800 text-ink dark:text-slate-200 border border-ink/30">Azure &amp; GCP</span>
+            <span class="px-2.5 py-1 rounded-md bg-paper dark:bg-slate-800 text-ink dark:text-slate-200 border border-ink/30">Docker</span>
+            <span class="px-2.5 py-1 rounded-md bg-paper dark:bg-slate-800 text-ink dark:text-slate-200 border border-ink/30">GitHub Actions &amp; Jenkins</span>
           </div>
         </div>
 
@@ -309,54 +416,73 @@
     </section>
 
     <!-- EXPERIENCE SECTION -->
-    <section id="experience" class="py-16 border-t border-slate-200/80 dark:border-slate-800/80">
-      <div class="max-w-2xl mb-12 reveal">
-        <p class="text-xs font-mono uppercase tracking-widest text-brand-600 dark:text-brand-400 font-semibold mb-2">Career Trajectory</p>
-        <h2 class="text-2xl sm:text-3xl font-bold tracking-tight">Professional Experience</h2>
+    <section id="experience" class="py-16 border-t-2 border-ink dark:border-slate-800">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-12 reveal">
+        <div class="lg:col-span-8">
+          <span class="inline-block px-3 py-1 rounded-lg bg-accent-amber text-ink border-2 border-ink font-mono text-xs font-semibold mb-3">
+            Career Trajectory
+          </span>
+          <h2 class="font-display text-3xl sm:text-4xl font-bold tracking-tight">
+            10+ years from Hardware &amp; Telco to Cloud Engineering Leadership
+          </h2>
+        </div>
+        <div class="lg:col-span-4 flex justify-start lg:justify-end">
+          <div class="inline-flex items-center gap-4 p-3 rounded-2xl bg-paper border-2 border-ink shadow-neo-sm">
+            <img src="assets/illustrations/larry-8.svg" alt="Stepping through doorway" class="w-16 h-16 object-contain" />
+            <div class="pr-2 text-ink">
+              <div class="font-display font-bold text-sm">Hands-On Progression</div>
+              <div class="font-mono text-xs text-ink-muted">Engineer → TL → EM</div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div class="space-y-10">
+      <div class="space-y-8">
 
         <!-- Motorola Solutions -->
-        <div class="rounded-2xl border border-slate-200 dark:border-slate-800/90 bg-white dark:bg-slate-900/40 p-6 sm:p-8 reveal">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-6 border-b border-slate-200/70 dark:border-slate-800/80">
+        <div class="rounded-3xl bg-white dark:bg-paper-cardDark border-2 border-ink dark:border-slate-700 shadow-neo-lg p-6 sm:p-8 reveal">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-6 border-b-2 border-ink/15 dark:border-slate-800">
             <div>
-              <h3 class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2.5">
-                <span>Motorola Solutions</span>
-                <span class="text-xs font-mono font-normal px-2.5 py-0.5 rounded-full bg-brand-500/10 text-brand-600 dark:text-brand-400">1 yr 10 mos</span>
-              </h3>
-              <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Cracow, Małopolskie, Poland</p>
+              <div class="flex flex-wrap items-center gap-3">
+                <h3 class="font-display text-2xl font-bold">Motorola Solutions</h3>
+                <span class="px-3 py-0.5 rounded-full bg-accent-amber text-ink border-2 border-ink font-mono text-xs font-semibold">
+                  1 yr 10 mos
+                </span>
+              </div>
+              <p class="font-mono text-xs text-ink-muted dark:text-slate-400 mt-1">Cracow, Małopolskie, Poland</p>
             </div>
-            <div class="font-mono text-xs text-slate-500 dark:text-slate-400">Jan 2025 — Present</div>
+            <div class="font-mono text-xs font-semibold px-3 py-1 rounded-lg bg-paper dark:bg-slate-800 border border-ink/20 dark:border-slate-700">
+              Jan 2025 — Present
+            </div>
           </div>
 
-          <div class="mt-6 space-y-8 relative before:absolute before:left-2 before:top-2 before:bottom-2 before:w-px before:bg-slate-200 dark:before:bg-slate-800">
+          <div class="mt-6 space-y-8 relative before:absolute before:left-2.5 before:top-2 before:bottom-2 before:w-0.5 before:bg-ink dark:before:bg-slate-700">
 
             <!-- Role 1 -->
-            <div class="relative pl-8">
-              <span class="absolute left-0 top-1.5 w-4 h-4 rounded-full border-2 border-brand-500 bg-white dark:bg-[#0a0d14]"></span>
+            <div class="relative pl-9">
+              <span class="absolute left-0 top-1.5 w-5 h-5 rounded-full border-2 border-ink bg-accent-amber"></span>
               <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
-                <h4 class="font-semibold text-base text-slate-900 dark:text-white">Software Engineering Manager</h4>
-                <span class="font-mono text-xs text-brand-600 dark:text-brand-400">Sep 2026 — Present</span>
+                <h4 class="font-display font-bold text-lg">Software Engineering Manager</h4>
+                <span class="font-mono text-xs font-semibold text-indigo-600 dark:text-accent-amber">Sep 2026 — Present</span>
               </div>
-              <p class="text-sm text-slate-600 dark:text-slate-400 mt-2 leading-relaxed">
-                Leading a 16-person engineering organization across three independent teams—<strong>Backend, Media Streaming, and Cloud Firmware</strong>—building advanced cloud-connected camera systems while remaining hands-on in C++ and Go and driving AI-augmented engineering workflows.
+              <p class="text-sm text-ink-muted dark:text-slate-300 mt-2 leading-relaxed">
+                Leading a 16-person engineering organization across three independent teams—<strong>Backend, Media Streaming, and Cloud Firmware</strong>—building advanced cloud-connected camera systems while actively contributing to C++ and Go repositories and championing AI-augmented engineering workflows.
               </p>
             </div>
 
             <!-- Role 2 -->
-            <div class="relative pl-8">
-              <span class="absolute left-0.5 top-1.5 w-3 h-3 rounded-full bg-slate-300 dark:bg-slate-700"></span>
+            <div class="relative pl-9">
+              <span class="absolute left-1 top-1.5 w-3.5 h-3.5 rounded-full border-2 border-ink bg-white dark:bg-slate-800"></span>
               <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
-                <h4 class="font-semibold text-base text-slate-900 dark:text-white">Software Engineering Technical Manager</h4>
-                <span class="font-mono text-xs text-slate-500 dark:text-slate-400">Jan 2025 — Aug 2026 (1 yr 8 mos)</span>
+                <h4 class="font-display font-bold text-lg">Software Engineering Technical Manager</h4>
+                <span class="font-mono text-xs text-ink-muted dark:text-slate-400">Jan 2025 — Aug 2026 (1 yr 8 mos)</span>
               </div>
-              <ul class="mt-3 space-y-2 text-sm text-slate-600 dark:text-slate-400 list-disc list-inside leading-relaxed">
-                <li><strong>Team Leadership:</strong> Managed, mentored, and scaled two Scrum teams (up to 9 direct reports), ensuring high-trust environments and delivery excellence.</li>
-                <li><strong>Product Delivery:</strong> Drove software development and market introduction of cloud-enabled <strong>H6M and H6A (Domes &amp; Bullets)</strong> cameras.</li>
-                <li><strong>Team Building &amp; Recruitment:</strong> Acted as Hiring Manager end-to-end across all seniority levels—from Interns and QA engineers to Senior Developers.</li>
-                <li><strong>Hands-On Engineering:</strong> Actively contributed to core C++ and Go codebases, conducted code reviews, and provided architectural guidance.</li>
-                <li><strong>Process Optimization:</strong> Led cross-team CI initiatives with QA to stabilize deployment pipelines and eliminate flaky tests.</li>
+              <ul class="mt-3 space-y-2 text-sm text-ink-muted dark:text-slate-300 list-disc list-inside leading-relaxed">
+                <li><strong>Team Leadership:</strong> Managed, mentored, and scaled two Scrum teams (up to 9 direct reports), ensuring they have the tools and environment needed to deliver high-quality software.</li>
+                <li><strong>Product Delivery:</strong> Drove the software development and successful market introduction of cloud-enabled <strong>H6M and H6A (Domes &amp; Bullets)</strong> cameras.</li>
+                <li><strong>Team Building &amp; Recruitment:</strong> Acted as Hiring Manager end-to-end across all seniority levels—spanning from Interns and QA engineers to Senior Developers.</li>
+                <li><strong>Hands-On Engineering:</strong> Actively contributed to the core codebase (primarily in C++ and Go), conducting code reviews and providing architectural guidance.</li>
+                <li><strong>Process Optimization:</strong> Led cross-team CI initiatives with QA to stabilize deployment pipelines, eliminating flaky tests and ensuring reliable bug detection.</li>
               </ul>
             </div>
 
@@ -364,56 +490,60 @@
         </div>
 
         <!-- Ericsson -->
-        <div class="rounded-2xl border border-slate-200 dark:border-slate-800/90 bg-white dark:bg-slate-900/40 p-6 sm:p-8 reveal">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-6 border-b border-slate-200/70 dark:border-slate-800/80">
+        <div class="rounded-3xl bg-white dark:bg-paper-cardDark border-2 border-ink dark:border-slate-700 shadow-neo-lg p-6 sm:p-8 reveal">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-6 border-b-2 border-ink/15 dark:border-slate-800">
             <div>
-              <h3 class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2.5">
-                <span>Ericsson</span>
-                <span class="text-xs font-mono font-normal px-2.5 py-0.5 rounded-full bg-slate-200/80 dark:bg-slate-800 text-slate-700 dark:text-slate-300">8 yrs 6 mos</span>
-              </h3>
-              <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Cracow, Małopolskie, Poland</p>
+              <div class="flex flex-wrap items-center gap-3">
+                <h3 class="font-display text-2xl font-bold">Ericsson</h3>
+                <span class="px-3 py-0.5 rounded-full bg-accent-sky text-ink border-2 border-ink font-mono text-xs font-semibold">
+                  8 yrs 6 mos
+                </span>
+              </div>
+              <p class="font-mono text-xs text-ink-muted dark:text-slate-400 mt-1">Cracow, Małopolskie, Poland</p>
             </div>
-            <div class="font-mono text-xs text-slate-500 dark:text-slate-400">Oct 2016 — Mar 2025</div>
+            <div class="font-mono text-xs font-semibold px-3 py-1 rounded-lg bg-paper dark:bg-slate-800 border border-ink/20 dark:border-slate-700">
+              Oct 2016 — Mar 2025
+            </div>
           </div>
 
-          <div class="mt-6 space-y-8 relative before:absolute before:left-2 before:top-2 before:bottom-2 before:w-px before:bg-slate-200 dark:before:bg-slate-800">
+          <div class="mt-6 space-y-8 relative before:absolute before:left-2.5 before:top-2 before:bottom-2 before:w-0.5 before:bg-ink dark:before:bg-slate-700">
 
             <!-- Role 1 -->
-            <div class="relative pl-8">
-              <span class="absolute left-0.5 top-1.5 w-3 h-3 rounded-full bg-brand-500"></span>
+            <div class="relative pl-9">
+              <span class="absolute left-0 top-1.5 w-5 h-5 rounded-full border-2 border-ink bg-accent-sky"></span>
               <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
-                <h4 class="font-semibold text-base text-slate-900 dark:text-white">Technical Team Leader / Senior Software Developer</h4>
-                <span class="font-mono text-xs text-slate-500 dark:text-slate-400">Jan 2021 — Mar 2025 (4 yrs 3 mos)</span>
+                <h4 class="font-display font-bold text-lg">Technical Team Leader / Senior Software Developer</h4>
+                <span class="font-mono text-xs text-ink-muted dark:text-slate-400">Jan 2021 — Mar 2025 (4 yrs 3 mos)</span>
               </div>
-              <ul class="mt-3 space-y-2 text-sm text-slate-600 dark:text-slate-400 list-disc list-inside leading-relaxed">
-                <li>Controlled the product development process, supported team self-organization, acted as Scrum Master, and partnered closely with Product Owners.</li>
-                <li>Worked with global Telco companies and large-scale Real-Time Systems (RTS), designing system test scenarios and performing live tests in customer networks.</li>
+              <ul class="mt-3 space-y-2 text-sm text-ink-muted dark:text-slate-300 list-disc list-inside leading-relaxed">
+                <li>Controlled product development process, supported team self-organization and cross-functionality, acted as Scrum Master, and supported the Product Owner.</li>
+                <li>Worked with global Telco companies and large-scale Real-Time Systems (RTS), creating test scenarios for large-scale system tests and performing live tests in customer networks.</li>
                 <li>Delivered <strong>Machine Learning projects</strong> (Python, Pandas, scikit-learn, NumPy) for performance optimization in high-traffic networks.</li>
-                <li>Hands-on development of <strong>AI / RAG-based solutions</strong> utilizing AWS and Amazon Bedrock.</li>
+                <li>Hands-on development of <strong>AI / RAG-based solutions</strong> (AWS, Amazon Bedrock).</li>
               </ul>
             </div>
 
             <!-- Role 2 -->
-            <div class="relative pl-8">
-              <span class="absolute left-0.5 top-1.5 w-3 h-3 rounded-full bg-slate-300 dark:bg-slate-700"></span>
+            <div class="relative pl-9">
+              <span class="absolute left-1 top-1.5 w-3.5 h-3.5 rounded-full border-2 border-ink bg-white dark:bg-slate-800"></span>
               <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
-                <h4 class="font-semibold text-base text-slate-900 dark:text-white">Software Developer</h4>
-                <span class="font-mono text-xs text-slate-500 dark:text-slate-400">Apr 2017 — Jan 2021 (3 yrs 10 mos)</span>
+                <h4 class="font-display font-bold text-lg">Software Developer</h4>
+                <span class="font-mono text-xs text-ink-muted dark:text-slate-400">Apr 2017 — Jan 2021 (3 yrs 10 mos)</span>
               </div>
-              <p class="text-sm text-slate-600 dark:text-slate-400 mt-1.5">
-                Developed new telecommunications features, maintained high-reliability codebases, and resolved complex customer network trouble reports.
+              <p class="text-sm text-ink-muted dark:text-slate-300 mt-1.5">
+                Developed code for new features, maintained telecommunications systems, and resolved customer network trouble reports.
               </p>
             </div>
 
             <!-- Role 3 -->
-            <div class="relative pl-8">
-              <span class="absolute left-0.5 top-1.5 w-3 h-3 rounded-full bg-slate-300 dark:bg-slate-700"></span>
+            <div class="relative pl-9">
+              <span class="absolute left-1 top-1.5 w-3.5 h-3.5 rounded-full border-2 border-ink bg-white dark:bg-slate-800"></span>
               <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
-                <h4 class="font-semibold text-base text-slate-900 dark:text-white">Junior Software Developer</h4>
-                <span class="font-mono text-xs text-slate-500 dark:text-slate-400">Oct 2016 — Apr 2017 (7 mos)</span>
+                <h4 class="font-display font-bold text-lg">Junior Software Developer</h4>
+                <span class="font-mono text-xs text-ink-muted dark:text-slate-400">Oct 2016 — Apr 2017 (7 mos)</span>
               </div>
-              <p class="text-sm text-slate-600 dark:text-slate-400 mt-1.5">
-                Feature development, automated/manual testing, and codebase improvements within the GSM domain (XFT Team).
+              <p class="text-sm text-ink-muted dark:text-slate-300 mt-1.5">
+                Feature development, testing, troubleshooting, and code improvements within the GSM area (XFT Team).
               </p>
             </div>
 
@@ -422,24 +552,24 @@
 
         <!-- Earlier Career Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 reveal">
-          <div class="rounded-2xl border border-slate-200 dark:border-slate-800/90 bg-white dark:bg-slate-900/40 p-6">
-            <div class="flex items-center justify-between text-xs font-mono text-slate-500 dark:text-slate-400 mb-2">
-              <span>NaviDirect SC</span>
+          <div class="rounded-2xl bg-white dark:bg-paper-cardDark border-2 border-ink dark:border-slate-700 shadow-neo p-6">
+            <div class="flex items-center justify-between text-xs font-mono text-ink-muted dark:text-slate-400 mb-2">
+              <span class="font-semibold text-ink dark:text-white">NaviDirect SC</span>
               <span>Feb 2016 — Oct 2016</span>
             </div>
-            <h4 class="font-semibold text-base mb-2">Technical Specialist</h4>
-            <p class="text-sm text-slate-600 dark:text-slate-400">
-              Hardware &amp; software fault diagnostics, testing new GPS/telemetry devices, technical customer support, and technical presentations.
+            <h4 class="font-display font-bold text-lg mb-2">Technical Specialist</h4>
+            <p class="text-sm text-ink-muted dark:text-slate-300">
+              Diagnosing hardware and software faults, testing new devices, technical customer support, and technical presentations in Cracow.
             </p>
           </div>
 
-          <div class="rounded-2xl border border-slate-200 dark:border-slate-800/90 bg-white dark:bg-slate-900/40 p-6">
-            <div class="flex items-center justify-between text-xs font-mono text-slate-500 dark:text-slate-400 mb-2">
-              <span>GATE Electronics</span>
+          <div class="rounded-2xl bg-white dark:bg-paper-cardDark border-2 border-ink dark:border-slate-700 shadow-neo p-6">
+            <div class="flex items-center justify-between text-xs font-mono text-ink-muted dark:text-slate-400 mb-2">
+              <span class="font-semibold text-ink dark:text-white">GATE Electronics</span>
               <span>Mar 2015 — Feb 2016</span>
             </div>
-            <h4 class="font-semibold text-base mb-2">Electronic Engineer</h4>
-            <p class="text-sm text-slate-600 dark:text-slate-400">
+            <h4 class="font-display font-bold text-lg mb-2">Electronic Engineer</h4>
+            <p class="text-sm text-ink-muted dark:text-slate-300">
               Electrical testing of manufactured devices, production management of electronic circuits, and quality control in Cracow.
             </p>
           </div>
@@ -449,90 +579,94 @@
     </section>
 
     <!-- CERTIFICATIONS & EDUCATION -->
-    <section id="credentials" class="py-16 border-t border-slate-200/80 dark:border-slate-800/80">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+    <section id="credentials" class="py-16 border-t-2 border-ink dark:border-slate-800">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
 
         <!-- Certifications -->
         <div class="lg:col-span-7 reveal">
-          <p class="text-xs font-mono uppercase tracking-widest text-brand-600 dark:text-brand-400 font-semibold mb-2">Continuous Learning</p>
-          <h2 class="text-2xl font-bold tracking-tight mb-6">Certifications</h2>
+          <span class="inline-block px-3 py-1 rounded-lg bg-accent-coral text-ink border-2 border-ink font-mono text-xs font-semibold mb-3">
+            Verified Credentials
+          </span>
+          <h2 class="font-display text-3xl font-bold tracking-tight mb-6">Certifications</h2>
 
-          <div class="space-y-3">
-            <div class="flex items-start gap-4 p-4 rounded-xl border border-slate-200 dark:border-slate-800/90 bg-white dark:bg-slate-900/40">
-              <div class="p-2 rounded-lg bg-brand-500/10 text-brand-600 dark:text-brand-400 mt-0.5">
-                <i data-lucide="cpu" class="w-4 h-4"></i>
+          <div class="space-y-4">
+            <div class="flex items-start gap-4 p-4 rounded-2xl bg-white dark:bg-paper-cardDark border-2 border-ink dark:border-slate-700 shadow-neo-sm">
+              <div class="p-2.5 rounded-xl bg-accent-amber border-2 border-ink text-ink shrink-0">
+                <i data-lucide="bot" class="w-5 h-5"></i>
               </div>
               <div>
-                <h3 class="font-semibold text-sm">AI Devs 2 — Connect GPT-4 with Application &amp; Automation Logic</h3>
-                <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">LLM orchestration, AI agents, and production automation workflows</p>
+                <h3 class="font-display font-bold text-base">AI Devs 2 — Connect GPT-4 with Application &amp; Automation Logic</h3>
+                <p class="text-xs text-ink-muted dark:text-slate-400 mt-0.5">LLM orchestration, AI agents, and production automation workflows</p>
               </div>
             </div>
 
-            <div class="flex items-start gap-4 p-4 rounded-xl border border-slate-200 dark:border-slate-800/90 bg-white dark:bg-slate-900/40">
-              <div class="p-2 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 mt-0.5">
-                <i data-lucide="shield-check" class="w-4 h-4"></i>
+            <div class="flex items-start gap-4 p-4 rounded-2xl bg-white dark:bg-paper-cardDark border-2 border-ink dark:border-slate-700 shadow-neo-sm">
+              <div class="p-2.5 rounded-xl bg-accent-mint border-2 border-ink text-ink shrink-0">
+                <i data-lucide="shield-check" class="w-5 h-5"></i>
               </div>
               <div>
-                <h3 class="font-semibold text-sm">C and C++ SEI CERT Based Secure Coding (ARM)</h3>
-                <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Secure embedded &amp; systems programming practices</p>
+                <h3 class="font-display font-bold text-base">C and C++ SEI CERT Based Secure Coding (ARM)</h3>
+                <p class="text-xs text-ink-muted dark:text-slate-400 mt-0.5">Secure embedded &amp; systems programming practices</p>
               </div>
             </div>
 
-            <div class="flex items-start gap-4 p-4 rounded-xl border border-slate-200 dark:border-slate-800/90 bg-white dark:bg-slate-900/40">
-              <div class="p-2 rounded-lg bg-sky-500/10 text-sky-600 dark:text-sky-400 mt-0.5">
-                <i data-lucide="award" class="w-4 h-4"></i>
+            <div class="flex items-start gap-4 p-4 rounded-2xl bg-white dark:bg-paper-cardDark border-2 border-ink dark:border-slate-700 shadow-neo-sm">
+              <div class="p-2.5 rounded-xl bg-accent-sky border-2 border-ink text-ink shrink-0">
+                <i data-lucide="award" class="w-5 h-5"></i>
               </div>
               <div>
-                <h3 class="font-semibold text-sm">Professional Scrum Master™ I (PSM I) &amp; Scrum Master Toolbox</h3>
-                <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Agile delivery, servant leadership, and team facilitation</p>
+                <h3 class="font-display font-bold text-base">Professional Scrum Master™ I (PSM I) &amp; Scrum Master Toolbox</h3>
+                <p class="text-xs text-ink-muted dark:text-slate-400 mt-0.5">Agile delivery, servant leadership, and team facilitation</p>
               </div>
             </div>
 
-            <div class="flex items-start gap-4 p-4 rounded-xl border border-slate-200 dark:border-slate-800/90 bg-white dark:bg-slate-900/40">
-              <div class="p-2 rounded-lg bg-amber-500/10 text-amber-600 dark:text-amber-400 mt-0.5">
-                <i data-lucide="check-circle-2" class="w-4 h-4"></i>
+            <div class="flex items-start gap-4 p-4 rounded-2xl bg-white dark:bg-paper-cardDark border-2 border-ink dark:border-slate-700 shadow-neo-sm">
+              <div class="p-2.5 rounded-xl bg-accent-coral border-2 border-ink text-ink shrink-0">
+                <i data-lucide="check-circle-2" class="w-5 h-5"></i>
               </div>
               <div>
-                <h3 class="font-semibold text-sm">ISTQB® Foundation Level</h3>
-                <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Software quality assurance and structured testing standards</p>
+                <h3 class="font-display font-bold text-base">ISTQB® Foundation Level</h3>
+                <p class="text-xs text-ink-muted dark:text-slate-400 mt-0.5">Software quality assurance and structured testing standards</p>
               </div>
             </div>
           </div>
         </div>
 
         <!-- Education & Languages -->
-        <div class="lg:col-span-5 space-y-8 reveal">
+        <div class="lg:col-span-5 space-y-6 reveal">
           <div>
-            <p class="text-xs font-mono uppercase tracking-widest text-brand-600 dark:text-brand-400 font-semibold mb-2">Academic Background</p>
-            <h2 class="text-2xl font-bold tracking-tight mb-6">Education</h2>
+            <span class="inline-block px-3 py-1 rounded-lg bg-accent-mint text-ink border-2 border-ink font-mono text-xs font-semibold mb-3">
+              Academic Foundation
+            </span>
+            <h2 class="font-display text-3xl font-bold tracking-tight mb-6">Education</h2>
 
             <div class="space-y-4">
-              <div class="p-5 rounded-xl border border-slate-200 dark:border-slate-800/90 bg-white dark:bg-slate-900/40">
-                <div class="text-xs font-mono text-brand-600 dark:text-brand-400 mb-1">2011 — 2015</div>
-                <h3 class="font-semibold text-base">Rzeszow University of Technology</h3>
-                <p class="text-xs text-slate-500 dark:text-slate-400">Politechnika Rzeszowska im. Ignacego Łukasiewicza</p>
-                <p class="text-sm text-slate-700 dark:text-slate-300 mt-2 font-medium">Bachelor of Engineering (Inż.), Electronics &amp; Telecommunications</p>
+              <div class="p-5 rounded-2xl bg-white dark:bg-paper-cardDark border-2 border-ink dark:border-slate-700 shadow-neo-sm">
+                <div class="font-mono text-xs font-semibold text-indigo-600 dark:text-accent-amber mb-1">2011 — 2015</div>
+                <h3 class="font-display font-bold text-lg">Rzeszow University of Technology</h3>
+                <p class="text-xs text-ink-muted dark:text-slate-400">Politechnika Rzeszowska im. Ignacego Łukasiewicza</p>
+                <p class="text-sm font-semibold mt-2">Bachelor of Engineering (Inż.), Electronics &amp; Telecommunications</p>
               </div>
 
-              <div class="p-5 rounded-xl border border-slate-200 dark:border-slate-800/90 bg-white dark:bg-slate-900/40">
-                <div class="text-xs font-mono text-slate-500 dark:text-slate-400 mb-1">2007 — 2011</div>
-                <h3 class="font-semibold text-base">Zespół Szkół nr 3 w Sanoku</h3>
-                <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">Mechatronics Technician (Technik mechatronik)</p>
+              <div class="p-5 rounded-2xl bg-white dark:bg-paper-cardDark border-2 border-ink dark:border-slate-700 shadow-neo-sm">
+                <div class="font-mono text-xs text-ink-muted dark:text-slate-400 mb-1">2007 — 2011</div>
+                <h3 class="font-display font-bold text-lg">Zespół Szkół nr 3 w Sanoku</h3>
+                <p class="text-sm text-ink-muted dark:text-slate-300 mt-1">Mechatronics Technician (Technik mechatronik)</p>
               </div>
             </div>
           </div>
 
           <!-- Languages -->
-          <div class="p-5 rounded-xl border border-slate-200 dark:border-slate-800/90 bg-white dark:bg-slate-900/40">
-            <h3 class="text-xs font-mono uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-3">Languages</h3>
+          <div class="p-5 rounded-2xl bg-white dark:bg-paper-cardDark border-2 border-ink dark:border-slate-700 shadow-neo-sm">
+            <h3 class="font-mono text-xs uppercase tracking-wider text-ink-muted dark:text-slate-400 mb-3">Languages</h3>
             <div class="grid grid-cols-2 gap-4 text-sm">
-              <div>
-                <div class="font-semibold">Polish</div>
-                <div class="text-xs text-slate-500 dark:text-slate-400">Native or Bilingual</div>
+              <div class="p-3 rounded-xl bg-paper dark:bg-slate-800 border border-ink/20">
+                <div class="font-display font-bold">Polish</div>
+                <div class="text-xs text-ink-muted dark:text-slate-400">Native / Bilingual</div>
               </div>
-              <div>
-                <div class="font-semibold">English</div>
-                <div class="text-xs text-slate-500 dark:text-slate-400">Full Professional</div>
+              <div class="p-3 rounded-xl bg-paper dark:bg-slate-800 border border-ink/20">
+                <div class="font-display font-bold">English</div>
+                <div class="text-xs text-ink-muted dark:text-slate-400">Full Professional</div>
               </div>
             </div>
           </div>
@@ -541,34 +675,49 @@
       </div>
     </section>
 
-    <!-- CONTACT SECTION -->
-    <section id="contact" class="py-16 md:py-24 border-t border-slate-200/80 dark:border-slate-800/80">
-      <div class="rounded-3xl border border-slate-200 dark:border-slate-800 bg-gradient-to-br from-white via-slate-50 to-indigo-50/40 dark:from-slate-900/80 dark:via-slate-900/50 dark:to-indigo-950/30 p-8 sm:p-12 text-center max-w-4xl mx-auto reveal">
-        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 text-brand-600 dark:text-brand-400 text-xs font-mono font-medium mb-4">
-          Let's Connect
-        </span>
-        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
-          Open to engineering leadership &amp; technology conversations
-        </h2>
-        <p class="text-slate-600 dark:text-slate-400 max-w-xl mx-auto mb-8 text-sm sm:text-base">
-          Whether you want to discuss cloud camera architectures, scaling engineering teams, or AI-augmented software development—feel free to reach out.
-        </p>
+    <!-- CONTACT SECTION (WITH LARRY NOTIFICATION ILLUSTRATION larry-9.svg) -->
+    <section id="contact" class="py-16 md:py-24 border-t-2 border-ink dark:border-slate-800">
+      <div class="rounded-3xl bg-accent-amber/40 dark:bg-paper-cardDark border-2 border-ink dark:border-slate-700 shadow-neo-lg p-8 sm:p-12 reveal">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
 
-        <div class="flex flex-wrap items-center justify-center gap-4">
-          <a href="mailto:piotradamski99@gmail.com" class="inline-flex items-center gap-2.5 px-6 py-3 rounded-xl font-medium text-sm bg-slate-900 text-white dark:bg-white dark:text-slate-950 hover:opacity-90 transition-opacity">
-            <i data-lucide="mail" class="w-4 h-4"></i>
-            <span>piotradamski99@gmail.com</span>
-          </a>
+          <div class="lg:col-span-8 space-y-5">
+            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-white text-ink border-2 border-ink font-mono text-xs font-semibold">
+              <span>✉️ 1 New Message</span>
+            </span>
 
-          <button id="copy-email-btn" data-email="piotradamski99@gmail.com" class="inline-flex items-center gap-2 px-4 py-3 rounded-xl font-medium text-sm border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-            <i data-lucide="copy" class="w-4 h-4"></i>
-            <span id="copy-email-text">Copy Email</span>
-          </button>
+            <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-ink dark:text-white">
+              Let's talk engineering, cloud cameras, or leadership.
+            </h2>
 
-          <a href="https://www.linkedin.com/in/piotr-adamski-59aa06101" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl font-medium text-sm bg-brand-600 hover:bg-brand-500 text-white transition-colors">
-            <i data-lucide="linkedin" class="w-4 h-4"></i>
-            <span>LinkedIn Profile</span>
-          </a>
+            <p class="text-ink-muted dark:text-slate-300 max-w-xl text-sm sm:text-base leading-relaxed">
+              Whether you want to connect about scaling engineering teams, C++ &amp; Go systems, or AI-augmented workflows—drop me a message directly or connect on LinkedIn.
+            </p>
+
+            <div class="flex flex-wrap items-center gap-4 pt-2">
+              <a href="mailto:piotradamski99@gmail.com" class="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl font-display font-bold text-sm bg-ink text-white dark:bg-accent-amber dark:text-ink border-2 border-ink shadow-neo hover:-translate-y-0.5 transition-all">
+                <i data-lucide="mail" class="w-4 h-4"></i>
+                <span>piotradamski99@gmail.com</span>
+              </a>
+
+              <button id="copy-email-btn" data-email="piotradamski99@gmail.com" class="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl font-display font-bold text-sm bg-white text-ink border-2 border-ink shadow-neo hover:-translate-y-0.5 transition-all">
+                <i data-lucide="copy" class="w-4 h-4"></i>
+                <span id="copy-email-text">Copy Email</span>
+              </button>
+
+              <a href="https://www.linkedin.com/in/piotr-adamski-59aa06101" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl font-display font-bold text-sm bg-accent-sky text-ink border-2 border-ink shadow-neo hover:-translate-y-0.5 transition-all">
+                <i data-lucide="linkedin" class="w-4 h-4"></i>
+                <span>LinkedIn</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Larry Checking Phone Notification (larry-9.svg) -->
+          <div class="lg:col-span-4 flex justify-center">
+            <div class="w-56 h-56 sm:w-64 sm:h-64 rounded-3xl bg-paper border-2 border-ink shadow-neo p-4 flex items-center justify-center">
+              <img src="assets/illustrations/larry-9.svg" alt="Checking message notification on phone" class="w-full h-full object-contain" />
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -576,10 +725,10 @@
   </main>
 
   <!-- Footer -->
-  <footer class="border-t border-slate-200/80 dark:border-slate-800/80 py-8 text-center text-xs text-slate-500 dark:text-slate-400">
+  <footer class="border-t-2 border-ink dark:border-slate-800 py-8 text-xs font-mono text-ink-muted dark:text-slate-400">
     <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <p>© <span id="year"></span> Piotr Adamski. Built with clean HTML, Tailwind CSS &amp; minimal JS.</p>
-      <p class="font-mono">Cracow Metropolitan Area, Poland</p>
+      <p>© <span id="year"></span> Piotr Adamski • Software Engineering Manager</p>
+      <p>Cracow Metropolitan Area, Poland</p>
     </div>
   </footer>
 
